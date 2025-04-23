@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti-Deepfake App</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        h1 { color: #333; }
+        .upload-container { margin-bottom: 20px; }
+        input[type="file"] { padding: 10px; }
+        button { padding: 10px 20px; background-color: #007BFF; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Anti-Deepfake App</h1>
+    <div class="upload-container">
+        <label for="upload-file">Upload a Photo/Video:</label><br>
+        <input type="file" id="upload-file" accept="image/*, video/*">
+        <button onclick="uploadFile()">Upload</button>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function uploadFile() {
+            const fileInput = document.getElementById("upload-file");
+            const file = fileInput.files[0];
+            if (!file) {
+                alert("Please select a file.");
+                return;
+            }
+            // Placeholder result for the demo
+            document.getElementById("result").innerHTML = `
+                <p><strong>Deepfake Detection Result:</strong> 95% Likely Deepfake</p>
+                <p><strong>Suggested Action:</strong> This image is highly likely to be a deepfake. Here is the original face below:</p>
+                <img src="original-face-placeholder.jpg" alt="Real Face" width="200">
+            `;
+        }
+    </script>
+</body>
+</html>
